@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Ma Super Fonte";
+    src: url(/../../assets/Billgates\ Demo.ttf);
+}
+
+
+#main {
+    min-height: 100vh;
+    background-color: papayawhip;
+}

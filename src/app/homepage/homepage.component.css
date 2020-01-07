@@ -1,0 +1,18 @@
+#welcome-title {
+    font-family: Ma Super Fonte ;
+    font-size: 4em;
+}
+
+#what-we-do {
+    border: 1px solid black;
+}
+
+#what-we-do-title {
+    font-family: Ma Super Fonte ;
+    font-size: 2em;
+}
+
+.carousel-item {
+    height: 45vh;
+}
+
