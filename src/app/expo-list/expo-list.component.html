@@ -1,20 +1,30 @@
 <div class="row">
-    <div class="col-12 text-center mt-2 mb-2">
+    <div class="col-12 text-center mt-2">
         <h1 id="expo-list-title">Expo List</h1>
     </div>
 </div>
 
 <div class="row">
-        <div *ngFor="let expo of expos" class="card col-3" style="width: 18rem;">
-            <img src="{{expo.img}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h2 class="card-title">{{expo.name}}</h2>
-                <h5 class="card-title">{{expo.adress}}, {{expo.city}}, {{expo.country}} </h5>
-                <p class="card-text">{{expo.description}}</p>
-                <h5>
-                    <strong> Owner </strong> : {{expo.owner}}
-                </h5>
-                <a href="#" class="btn btn-primary">See Details about the expo</a>
-            </div>
+    <div class="col-12">
+        <mat-paginator style="background-color: papayawhip !important;" *ngIf='expos' [length]="expos.length"
+            [pageSize]='pageSize' (page)="getPaginatorData($event)" showFirstLastButtons="true"
+            [pageSizeOptions]="pageSizeOptions">
+        </mat-paginator>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <mat-list *ngFor="let expo of (expos | 
+    slice: lowValue : highValue)" class=" card col-md-6 col-lg-3 col-sm-12 m-2" style="width: 18rem;">
+        <img src="{{expo.img}}" class="pt-2 card-img-top" alt="...">
+        <div class="card-body">
+            <h2 class="card-title">{{expo.name}}</h2>
+            <h5 class="card-title">{{expo.adress}}, {{expo.city}}, {{expo.country}} </h5>
+            <p class="card-text">{{expo.description | slice:-150 }} ... </p>
+            <h5>
+                <strong> Owner </strong> : {{expo.owner}}
+            </h5>
+            <a href="#" class="btn btn-primary">See Details about the expo</a>
         </div>
+    </mat-list>
 </div>

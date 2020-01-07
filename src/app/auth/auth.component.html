@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-12 text-center">
+        <h1>Authentication Page</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <mat-card class="form-layout" id="auth-card">
+            <app-login *ngIf="btnText === 'Register'"></app-login>
+            <app-register *ngIf="btnText === 'Login'" (registered)="changeText()"></app-register>
+            <button class="mt-5" mat-raised-button color="secondary" (click)="changeText()">
+                {{btnText}}
+            </button>
+        </mat-card>
+    </div>
+</div>
+
