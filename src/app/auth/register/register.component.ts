@@ -24,6 +24,12 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthServiceService, private fb:FormBuilder, private exists:UserExistsValidator) { }
 
+  register() {
+    this.authService.addUser(this.form.value).subscribe(
+      () => this.registered.emit()
+    );
+  }
+  
   ngOnInit() {
     this.form = this.fb.group({
       'email': ['', [Validators.email, Validators.required], [this.exists]],
@@ -36,9 +42,5 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  register() {
-    this.authService.addUser(this.form.value).subscribe(
-      () => this.registered.emit()
-    );
-  }
+ 
 }

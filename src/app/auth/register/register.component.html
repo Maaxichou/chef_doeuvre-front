@@ -1,6 +1,5 @@
 <mat-card-title>Register</mat-card-title>
 
-{{form.errors?.passwordNotMatch}}
 <form (ngSubmit)="register()" [formGroup]="form">
 
     <p *ngIf="form.errors?.passwordNotMatch" style="color: red">
